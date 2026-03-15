@@ -22,7 +22,7 @@ const maxEl = document.getElementById("max");
 const msgEl = document.getElementById("message");
 const restartBtn = document.getElementById("restart");
 const img = document.getElementById("img");
-
+var mis=0;
 // مفاتيح التخزين
 const STORAGE_LEVEL_KEY = "hangman.level.v1";
 const STORAGE_LOCKS_KEY = "hangman.lockedLevels.v1";
@@ -118,6 +118,7 @@ async function updateStatusMessage(){
     init();
     msgEl.classList.add("win");
   } else if (status === "lost"){
+    mis=mis+1;
     await new Promise(resolve => setTimeout(resolve, 500));
     alert(`💀 خسرت. الكلمة كانت: ${secret}`);
     init();
@@ -214,6 +215,7 @@ function init(){
     
     // تعطيل الواجهة
     wordEl.textContent = "أحسنت لقد أنهيت جميع المستويات.";
+    mistakesEl.textContent = mis;
     keyboardEl.innerHTML = "";
     // msgEl.textContent = "🚫 لا يمكنك اللعب حتى تعيد ضبط التقدم.";
     msgEl.className = "lose";
