@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لعبة الرجل المشنوق</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container" role="application" aria-label="لعبة الرجل المشنوق">
+    <h1>لعبة الرجل المشنوق</h1>
+
+    <section class="status-bar">
+      <div>الأخطاء: <span id="mistakes">0</span>/<span id="max">6</span></div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="stage">
+      <img src="" id="img">
+      <!-- رسم بسيط باستخدام SVG يتدرّج مع الأخطاء -->
+      <svg id="gallows" viewBox="0 0 200 200" aria-label="رسم تقدم اللعبة" role="img">
+        <!-- الأرض -->
+        <line x1="10" y1="190" x2="190" y2="190" class="line" />
+        <!-- القاعدة -->
+        <line x1="40" y1="190" x2="40" y2="20" class="line" />
+        <line x1="40" y1="20" x2="120" y2="20" class="line" />
+        <line x1="120" y1="20" x2="120" y2="40" class="line" />
+        <!-- الجسم (يظهر تدريجيًا) -->
+        <circle id="part-1" cx="120" cy="55" r="15" class="part hidden" />
+        <line id="part-2" x1="120" y1="70" x2="120" y2="115" class="part hidden" />
+        <line id="part-3" x1="120" y1="80" x2="100" y2="100" class="part hidden" />
+        <line id="part-4" x1="120" y1="80" x2="140" y2="100" class="part hidden" />
+        <line id="part-5" x1="120" y1="115" x2="105" y2="145" class="part hidden" />
+        <line id="part-6" x1="120" y1="115" x2="135" y2="145" class="part hidden" />
+      </svg>
+    </section>
+
+    <section class="word" id="word" aria-label="الكلمة المطلوب تخمينها" role="img"></section>
+
+    <section class="keyboard" id="keyboard" aria-label="لوحة مفاتيح افتراضية"></section>
+
+    <section class="actions">
+      <button id="restart" title="إعادة اللعب">إعادة اللعب</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
